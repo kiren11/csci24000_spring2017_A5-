@@ -1,0 +1,65 @@
+//algorithm
+
+So for the implementation I was thinking of two possible methods of inheritance. So obviously all of the employee types inherit from employee, however what is hard is determining the relationship between Pharmacy Manager and Pharmacist and Technician and Senior Technician for example. 
+	1) I could have Senior Technician inherit from Technican since it is a more specific type of Technician, therefore that would make sense.
+		-However -> the only thing in Technician would be the pay, which would not be someone I’d want senior technician to inherit since that employees pay is different.
+	2) Therefore, I am regarding each employee as a separate type of employee.
+
+
+
+Menu Sequence:
+
+First Menu:
+1) You can either enter 1 or 2 for the first menu
+	a) If user presses one, it will continue to the second menu
+	b) Will notify user that the file has indeed been loaded into the system
+
+Second Menu:
+1) This is going to be a part of the if statement, “if one is pressed” 
+2) The second menu appears, and it will allow the user to pick one of the four options
+	a) If 1 is pressed, it will print out the arrays that the program read from the text file
+	b) If 2 is pressed, the program will ask for a user input, which must be of type int (convert to double bc money)
+	c) If 3 is pressed, the hours will be multiplied by each employees hourly rate, and that will be shown next to each employee
+
+To exit the program: 
+	1) Name 2 variables, one for the first menu, and a second for the second menu
+	2) If variable number one == 2, then it will quit
+	3) Also if variable number 2 == 4, then it will quit
+	4) BUT if it does not equal any of the menu options, including the quit numbers, then an error message will be displayed and the user will have to enter in a valid input.
+
+*If user tries to display paychecks before entering hours worked, then a error message will be displayed as well
+
+* This will all be in a do while loop, the while condition being the exit number options.
+
+
+
+Employee Information:
+-All info will be stored in the Employee class, since each employee has a first name, last name, employee ID, and hourly rate, as well as starting date. 
+-These can all then be inherited.
+-The number enter for the hours worked will be the same for all employees.
+
+
+Actual Driver Class:
+
+1) First two variables will be declared in order to allow input for both inputs (also so that the numbers do not cause confusion if they are the same variable)
+2) Create a new scanner
+3) Display the first menu
+4) Ask for the users selection
+5) Retrieve answer	
+     a) If the answer is 1:
+	-Create a new file (“employees.txt”)
+	-Print that the file has been loaded (for user)
+	-Then display the second menu
+6) Second menu sequence:
+     a) Ask for user selection
+     b) If 1 is pressed:
+	-Create a new Employee instance
+	-Ignore the first line
+	-Create a variable line for the reader
+	-While there are lines in the program:
+	     ~Create an array that stores all of the tokens (which are made by using the split method to tokenize by using the comma as a delimiter)
+	     ~Assign the tokens to actual values
+	     ~Print out the employee information as formatted
+7) Add catch to catch exceptions
+     a) both for file not found as well as IO Exception
+8) Do this all while variable 1 is not 3 and while the second answer is not 4
